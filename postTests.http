@@ -1,0 +1,47 @@
+###
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "courseName": "Introducción a Java",
+  "instructorName": "Carlos García",
+  "startDate": "2024-11-01",
+  "durationInWeeks": 8
+}
+###
+//con errores nombre vacio
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "courseName": "",
+  "instructorName": "María López",
+  "startDate": "2023-09-01",
+  "durationInWeeks": 5
+}
+
+
+###
+//con errores duracion no valida
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "courseName": "Programación en Python",
+  "instructorName": "José Pérez",
+  "startDate": "2024-12-15",
+  "durationInWeeks": 0
+}
+
+
+###
+//todos los campos vacios
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "courseName": "",
+  "instructorName": "",
+  "startDate": null,
+  "durationInWeeks": null
+}
