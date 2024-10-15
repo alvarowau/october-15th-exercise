@@ -9,6 +9,8 @@ import org.alvarowau.model.entity.Course;
 import org.alvarowau.repository.CourseRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
@@ -23,5 +25,11 @@ public class CourseServiceImpl implements CourseService {
         }catch (Exception e) {
             throw new RuntimeException("no se pudo guardar la entity" + e.getMessage());
         }
+    }
+
+    @Override
+    public List<CourseResponsePost> getAllCourses() {
+        List<Course> courses = courseRepository.findAll();
+        return courses.parallelStream().map(CourseMapper::toCourseResponsePost).toList();
     }
 }
