@@ -1,6 +1,7 @@
 package org.alvarowau.mapper;
 
 import org.alvarowau.model.dto.CourseRequestPost;
+import org.alvarowau.model.dto.CourseRequestUpdate;
 import org.alvarowau.model.dto.CourseResponsePost;
 import org.alvarowau.model.entity.Course;
 
@@ -22,6 +23,15 @@ public class CourseMapper {
                 .instructorName(course.getInstructorName())
                 .startDate(course.getStartDate())
                 .durationInWeeks(course.getDurationInWeeks())
+                .build();
+    }
+
+    public static Course toCourseOfCourseRequestUpdate(Long id, CourseRequestUpdate update) {
+        return Course.builder()
+                .id(id)
+                .instructorName(update.getInstructorName())
+                .startDate(update.getStartDate())
+                .durationInWeeks(update.getDurationInWeeks())
                 .build();
     }
 }

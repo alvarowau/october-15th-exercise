@@ -37,7 +37,22 @@ public class CourseControllerImpl implements CourseController {
     @GetMapping
     @Override
     public ResponseEntity<List<CourseResponsePost>> getAllCourses() {
-        return ResponseEntity.ok(courseService.getAllCourses());
+        try{
+            return ResponseEntity.ok(courseService.getAllCourses());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
+    }
+
+    @GetMapping("/{id}")
+    @Override
+    public ResponseEntity<CourseResponsePost> getCourseById(@PathVariable Long id) {
+        try{
+            return ResponseEntity.ok(courseService.getCourseById(id));
+        }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
 

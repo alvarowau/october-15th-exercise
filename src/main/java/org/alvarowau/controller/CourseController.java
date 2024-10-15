@@ -13,4 +13,5 @@ import java.util.List;
 public interface CourseController {
     ResponseEntity<?> createCourse(@Valid @RequestBody CourseRequestPost post, BindingResult result);
     ResponseEntity<List<CourseResponsePost>> getAllCourses();
+    ResponseEntity<CourseResponsePost> getCourseById(Long id);
 }

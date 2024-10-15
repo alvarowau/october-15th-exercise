@@ -9,4 +9,6 @@ public interface CourseService {
 
     CourseResponsePost createCourse(CourseRequestPost courseRequestPost);
     List<CourseResponsePost> getAllCourses();
+    CourseResponsePost getCourseById(Long id);
+    CourseResponsePost updateCourse(Long id, CourseRequestPost courseRequestPost);
 }
